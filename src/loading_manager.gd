@@ -1,9 +1,5 @@
 extends Node
 
-
-signal progress_changed(progress: Array[float])
-signal loading_done
-
 @onready var _load_screen_scene = preload("res://src/loading_manager/loading_screen.tscn")
 
 var _current_load_screen: Node
