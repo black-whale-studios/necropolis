@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 	var status = ResourceLoader.load_threaded_get_status(_request_scene, _progress)
 	match status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-			_current_load_screen.update_progress_bar(_progress)# Change the ProgressBar value
+			_current_load_screen.update_progress_bar(_progress[0])# Change the ProgressBar value
 		ResourceLoader.THREAD_LOAD_LOADED:
 			_is_loading = false
 			_current_load_screen.load_done()

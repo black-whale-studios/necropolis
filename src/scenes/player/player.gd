@@ -6,8 +6,6 @@ extends CharacterBody3D
 @export var jump_force := 8.0
 @export var sensitivity := 0.2
 
-
-
 var pitch := 0.0              # To track vertical camera rotation (pitch)
 
 func _ready():
@@ -44,7 +42,7 @@ func handle_movement(delta):
 	horizontal_velocity = transform.basis * horizontal_velocity
 
 	if not is_on_floor():
-		velocity.y -= get_gravity() * delta
+		velocity.y -= 20.0 * delta
 	else:
 		velocity.y = 0
 		if Input.is_action_just_pressed("jump"):
