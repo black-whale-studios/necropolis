@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 LoadingManager="*res://src/loading_manager/loading_manager.gd"
 
+[global_group]
+
+player="The player character"
+
 [input]
 
 move_left={
