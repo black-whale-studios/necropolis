@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqot8wk1fsrdy"]
+[gd_scene load_steps=7 format=3 uid="uid://bqot8wk1fsrdy"]
 
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_pgc1p"]
 [ext_resource type="Material" uid="uid://b4gwd5h7ixvct" path="res://src/scenes/player/player.tres" id="2_gldw4"]
+[ext_resource type="PackedScene" uid="uid://dct8nxpp266dt" path="res://src/scenes/player/gui/PlayerGui.tscn" id="3_58od1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u6tj1"]
 
@@ -11,10 +12,9 @@ material = ExtResource("2_gldw4")
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2qky"]
 size = Vector3(0.55, 1, 1)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER") groups=["player"]]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_pgc1p")
 MOUSE_SENSITIVITY = 0.25
-CAMERA_CONTROLLER = NodePath("CameraController/Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -32,11 +32,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 update_mode = 1
 enable_shadows = true
 
+[node name="PlayerGui" parent="CameraController/Camera3D" instance=ExtResource("3_58od1")]
+
 [node name="InteractionArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37116, -0.714523)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0366211)
 shape = SubResource("BoxShape3D_h2qky")
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]

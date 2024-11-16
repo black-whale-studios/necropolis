@@ -1,3 +1,4 @@
+class_name InteractionBox
 extends Node3D
 
 @export var interaction_descripion: String
@@ -17,6 +18,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+
 
 func interact():
 	_interaction_script.interact()

@@ -5,7 +5,10 @@ extends CharacterBody3D
 @export var MOUSE_SENSITIVITY : float = 0.5
 @export var TILT_LOWER_LIMIT := deg_to_rad(-90.0)
 @export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
-@export var CAMERA_CONTROLLER : Camera3D
+
+
+@onready var camera_controller: Camera3D = $CameraController/Camera3D
+@onready var player_gui := $CameraController/Camera3D/PlayerGui
 
 var _mouse_input : bool = false
 var _rotation_input : float
@@ -14,7 +17,7 @@ var _mouse_rotation : Vector3
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
 
-var _current_interaction_area: Area3D
+var _current_interaction_object: InteractionBox
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -27,8 +30,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
 		
 func _input(event):
-	if event.is_action_pressed("interact") and _current_interaction_area:
-		_current_interaction_area.get_parent().interact()
+	if event.is_action_pressed("interact") and _current_interaction_object:
+		_current_interaction_object.interact()
 		pass
 
 func _update_camera(delta):
@@ -41,10 +44,10 @@ func _update_camera(delta):
 	_player_rotation = Vector3(0.0,_mouse_rotation.y,0.0)
 	_camera_rotation = Vector3(_mouse_rotation.x,0.0,0.0)
 
-	CAMERA_CONTROLLER.transform.basis = Basis.from_euler(_camera_rotation)
+	camera_controller.transform.basis = Basis.from_euler(_camera_rotation)
 	global_transform.basis = Basis.from_euler(_player_rotation)
 	
-	CAMERA_CONTROLLER.rotation.z = 0.0
+	camera_controller.rotation.z = 0.0
 
 	_rotation_input = 0.0
 	_tilt_input = 0.0
@@ -85,12 +88,14 @@ func _physics_process(delta):
 
 func _on_interaction_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("interaction_box"):
-		_current_interaction_area = area
+		_current_interaction_object = area.get_parent()
+		player_gui.show_interaction_description()
+		player_gui.set_interaction_description(_current_interaction_object.interaction_descripion)
 		pass
 	pass # Replace with function body.
 
 
 func _on_interaction_area_area_exited(area: Area3D) -> void:
-	if _current_interaction_area == area:
-		_current_interaction_area = null
+	if _current_interaction_object == area.get_parent():
+		_current_interaction_object = null
 	pass # Replace with function body.
