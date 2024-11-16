@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://f5co7wm1ijeb"]
+
+[ext_resource type="PackedScene" uid="uid://dimr8hja5wv04" path="res://src/levels/lab/floor/section.tscn" id="1_wnoob"]
+
+[node name="Floor" type="Node3D"]
+
+[node name="Section2" parent="." instance=ExtResource("1_wnoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="Section" parent="." instance=ExtResource("1_wnoob")]
+
+[node name="Section3" parent="." instance=ExtResource("1_wnoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="Section4" parent="." instance=ExtResource("1_wnoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
+
+[node name="Section5" parent="." instance=ExtResource("1_wnoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+
+[node name="Section6" parent="." instance=ExtResource("1_wnoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+
+[node name="Section7" parent="." instance=ExtResource("1_wnoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -16)
+
+[node name="Section8" parent="." instance=ExtResource("1_wnoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
+
+[node name="Section9" parent="." instance=ExtResource("1_wnoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -16)

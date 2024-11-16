@@ -1,5 +1,7 @@
 extends Control
 
+@export var FirstLevelPath: PackedScene
+
 @onready var LoadingManager := $"/root/LoadingManager"
 
 # Called when the node enters the scene tree for the first time.
@@ -13,5 +15,5 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	LoadingManager.load_scene("res://src/levels/lab.tscn")
+	LoadingManager.load_scene(FirstLevelPath.resource_path)
 	pass # Replace with function body.

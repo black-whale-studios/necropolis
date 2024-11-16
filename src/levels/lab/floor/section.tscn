@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dimr8hja5wv04"]
+
+[ext_resource type="ArrayMesh" uid="uid://bkue3sbmsaewc" path="res://src/assets/Industrial_exterior_v2/Models/Alphalt_Floor.res" id="1_ry8rh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1odej"]
+size = Vector3(16, 0, 16)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_4oqtd"]
+vertices = PackedVector3Array(8, 0, -8, 8, 0, 8, -8, 0, 8, -8, 0, -8)
+polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(2, 3, 0)]
+
+[node name="Section" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1odej")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ry8rh")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="MeshInstance3D"]
+navigation_mesh = SubResource("NavigationMesh_4oqtd")

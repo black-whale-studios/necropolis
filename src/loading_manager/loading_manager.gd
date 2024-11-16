@@ -38,7 +38,7 @@ func load_scene(scene_path: String):
 	get_tree().get_root().add_child(_current_load_screen)
 	
 	
-	var state = ResourceLoader.load_threaded_request(_request_scene)
+	var state = ResourceLoader.load_threaded_request(_request_scene, "", false)
 	if state == OK:
 		_is_loading = true
 	pass
