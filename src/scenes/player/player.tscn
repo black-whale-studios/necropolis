@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqot8wk1fsrdy"]
+[gd_scene load_steps=6 format=3 uid="uid://bqot8wk1fsrdy"]
 
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_pgc1p"]
 [ext_resource type="Material" uid="uid://b4gwd5h7ixvct" path="res://src/scenes/player/player.tres" id="2_gldw4"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6tv51"]
 material = ExtResource("2_gldw4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2qky"]
+size = Vector3(0.55, 1, 1)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER") groups=["player"]]
 script = ExtResource("1_pgc1p")
@@ -28,3 +31,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="ReflectionProbe" type="ReflectionProbe" parent="CameraController/Camera3D"]
 update_mode = 1
 enable_shadows = true
+
+[node name="InteractionArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37116, -0.714523)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0366211)
+shape = SubResource("BoxShape3D_h2qky")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

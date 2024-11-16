@@ -14,6 +14,8 @@ var _mouse_rotation : Vector3
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
 
+var _current_interaction_area: Area3D
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -53,6 +55,9 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("interact") and _current_interaction_area:
+		_current_interaction_area.get_parent().interact()
+		pass
 	
 	# Update camera movement based on mouse movement
 	_update_camera(delta)
@@ -79,3 +84,16 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_interaction_area_area_entered(area: Area3D) -> void:
+	if area.is_in_group("interaction_box"):
+		_current_interaction_area = area
+		pass
+	pass # Replace with function body.
+
+
+func _on_interaction_area_area_exited(area: Area3D) -> void:
+	if _current_interaction_area == area:
+		_current_interaction_area = null
+	pass # Replace with function body.
