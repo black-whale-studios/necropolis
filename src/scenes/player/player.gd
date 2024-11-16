@@ -27,10 +27,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
 		
 func _input(event):
-	
-	if event.is_action_pressed("exit"):
-		get_tree().quit()
-		
+	if event.is_action_pressed("interact") and _current_interaction_area:
+		_current_interaction_area.get_parent().interact()
+		pass
+
 func _update_camera(delta):
 	
 	# Rotates camera using euler rotation
@@ -55,9 +55,6 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("interact") and _current_interaction_area:
-		_current_interaction_area.get_parent().interact()
-		pass
 	
 	# Update camera movement based on mouse movement
 	_update_camera(delta)
