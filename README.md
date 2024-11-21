@@ -38,11 +38,11 @@
 
   As métricas incluem:  
 
-    - **FPS mínimo de 60** durante o jogo, mesmo com alta carga de IA.  
+	- **FPS mínimo de 60** durante o jogo, mesmo com alta carga de IA.  
 
-    - **Taxa de detecção do monstro** que seja justa para o jogador (não excessiva nem ineficaz).  
+	- **Taxa de detecção do monstro** que seja justa para o jogador (não excessiva nem ineficaz).  
 
-    - **Feedback positivo dos jogadores** sobre a fluidez da interação e tensão do jogo.
+	- **Feedback positivo dos jogadores** sobre a fluidez da interação e tensão do jogo.
 
 
 
@@ -50,49 +50,49 @@
 
   Implementar e testar os sistemas em etapas:  
 
-    1. IA básica para movimentação do perseguidor.  
+	1. IA básica para movimentação do perseguidor.  
 
-    2. Implementação da lógica de detecção visual e auditiva.  
+	2. Implementação da lógica de detecção visual e auditiva.  
 
-    3. Ajuste fino das mecânicas de fuga e perseguição.  
+	3. Ajuste fino das mecânicas de fuga e perseguição.  
 
-    4. * Integração com outros sistemas de jogo (interações, iluminação, e narração).
+	4. * Integração com outros sistemas de jogo (interações, iluminação, e narração).
 
 
 
 - [*] **Subproblemas identificados e divididos, se aplicável**:  
 
-    - Programar comportamento da IA para estados individuais (patrulha, perseguição, pausa).  
+	- Programar comportamento da IA para estados individuais (patrulha, perseguição, pausa).  
 
-    - Implementar e testar lógica de som para evitar falso positivo/negativo.  
+	- Implementar e testar lógica de som para evitar falso positivo/negativo.  
 
-    - Calibrar interações do jogador com o ambiente (como esconder-se ou criar distrações).  
+	- Calibrar interações do jogador com o ambiente (como esconder-se ou criar distrações).  
 
 
 
 - [*] **Estrutura geral do algoritmo esboçada**:  
 
-    - **FSM para o perseguidor**: Controla mudanças de estados como "patrulha" para "perseguir".  
+	- **FSM para o perseguidor**: Controla mudanças de estados como "patrulha" para "perseguir".  
 
-    - **Detecção auditiva**: Baseada em raios sonoros com propagação limitada por obstáculos.  
+	- **Detecção auditiva**: Baseada em raios sonoros com propagação limitada por obstáculos.  
 
-    - * **Interação do jogador**: Inclui esconder-se, distrair o monstro e completar objetivos.
+	- * **Interação do jogador**: Inclui esconder-se, distrair o monstro e completar objetivos.
 
 
 
 - [-] **Casos limite ou situações especiais identificados**:  
 
-    - Jogador permanece escondido por tempo indeterminado: o perseguidor deve alternar para comportamento de patrulha.  
+	- Jogador permanece escondido por tempo indeterminado: o perseguidor deve alternar para comportamento de patrulha.  
 
-    - Sons próximos ao perseguidor em locais complexos (como salas com várias entradas): IA deve calcular a melhor rota.  
+	- Sons próximos ao perseguidor em locais complexos (como salas com várias entradas): IA deve calcular a melhor rota.  
 
 
 
 - [x] **Análise teórica realizada para verificar a correção do algoritmo**:  
 
-    - A FSM foi simulada para confirmar transições corretas entre estados.  
+	- A FSM foi simulada para confirmar transições corretas entre estados.  
 
-    - Cenários extremos foram previstos para evitar travamentos na lógica do jogo.
+	- Cenários extremos foram previstos para evitar travamentos na lógica do jogo.
 
 
 
@@ -108,9 +108,9 @@
 
 - [x] **Pontos críticos do algoritmo identificados para otimização, se necessário**:  
 
-    - Propagação de som e obstáculos: Precisará de otimização para mapas grandes.  
+	- Propagação de som e obstáculos: Precisará de otimização para mapas grandes.  
 
-    - Trajetória do perseguidor: Deve ser calculada sem causar quedas no desempenho.
+	- Trajetória do perseguidor: Deve ser calculada sem causar quedas no desempenho.
 
 
 
@@ -195,4 +195,3 @@
 - [x] **Discussão sobre o projeto e respostas a perguntas da audiência**:  
 
   A equipe se preparou para responder a questões sobre design técnico e decisões criativas.
-
