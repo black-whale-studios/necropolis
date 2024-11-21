@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_pgc1p"]
 [ext_resource type="Material" uid="uid://b4gwd5h7ixvct" path="res://src/scenes/player/player.tres" id="2_gldw4"]
-[ext_resource type="PackedScene" uid="uid://dct8nxpp266dt" path="res://src/scenes/player/gui/PlayerGui.tscn" id="3_58od1"]
+[ext_resource type="PackedScene" uid="uid://dct8nxpp266dt" path="res://src/scenes/player/gui/PlayerGui.tscn" id="3_dy6rl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u6tj1"]
 
@@ -32,7 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 update_mode = 1
 enable_shadows = true
 
-[node name="PlayerGui" parent="CameraController/Camera3D" instance=ExtResource("3_58od1")]
+[node name="PlayerGui" parent="CameraController/Camera3D" instance=ExtResource("3_dy6rl")]
+follow_viewport_enabled = true
 
 [node name="InteractionArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37116, -0.714523)

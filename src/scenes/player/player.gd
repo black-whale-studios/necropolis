@@ -28,11 +28,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _mouse_input:
 		_rotation_input = -event.relative.x * MOUSE_SENSITIVITY
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
-		
-func _input(event):
-	if event.is_action_pressed("interact") and _current_interaction_object:
-		_current_interaction_object.interact()
-		pass
+	
+
 
 func _update_camera(delta):
 	
@@ -66,9 +63,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -89,7 +84,7 @@ func _physics_process(delta):
 func _on_interaction_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("interaction_box"):
 		_current_interaction_object = area.get_parent()
-		player_gui.show_interaction_description()
+
 		player_gui.set_interaction_description(_current_interaction_object.interaction_descripion)
 		pass
 	pass # Replace with function body.
@@ -98,4 +93,5 @@ func _on_interaction_area_area_entered(area: Area3D) -> void:
 func _on_interaction_area_area_exited(area: Area3D) -> void:
 	if _current_interaction_object == area.get_parent():
 		_current_interaction_object = null
+		player_gui.hide_interaction_description()
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var interaction_description_label := $InteractionDescriptionLabel
 
@@ -15,6 +15,6 @@ func set_interaction_description(description: String):
 	interaction_description_label.text = "Press E to " + description
 	pass
 	
-func show_interaction_description():
-	
+func hide_interaction_description():
+	interaction_description_label.text = ""
 	pass

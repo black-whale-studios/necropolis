@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://f5co7wm1ijeb"]
 
-[ext_resource type="PackedScene" uid="uid://dimr8hja5wv04" path="res://src/levels/lab_entrance/floor/section.tscn" id="1_wnoob"]
+[ext_resource type="PackedScene" uid="uid://dimr8hja5wv04" path="res://src/levels/factory_entrance/floor/section.tscn" id="1_wnoob"]
 
 [node name="Floor" type="Node3D"]
 
