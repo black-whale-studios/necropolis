@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://rl0jashqxdut"]
+[gd_scene load_steps=7 format=3 uid="uid://rl0jashqxdut"]
 
 [ext_resource type="ArrayMesh" uid="uid://c1xht00smxh5" path="res://src/assets/Industrial_exterior_v2/Models/Wall.res" id="1_5tyys"]
 [ext_resource type="ArrayMesh" uid="uid://bkue3sbmsaewc" path="res://src/assets/Industrial_exterior_v2/Models/Alphalt_Floor.res" id="2_er0gl"]
@@ -8,14 +8,17 @@
 points = PackedVector3Array(2.01449, 2.90841, -0.231113, 2.01449, 2.90812, 0.231068, 2.01488, -0.0860572, 0.163472, 2.01488, -0.0860572, -0.165236, 2.01449, 2.77505, -0.231113, -2.01488, 2.90841, -0.231113, 2.01449, 2.77505, 0.231068, -2.01488, 2.90812, 0.231068, -2.01488, 2.77505, 0.231113, -2.01488, -0.0860572, 0.163472, -2.01488, -0.0860572, -0.165236, -2.01488, 2.77505, -0.231113)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1i0du"]
-size = Vector3(25, 0, 15)
+size = Vector3(31.893, 0.135, 15)
+
+[sub_resource type="Environment" id="Environment_socna"]
+ambient_light_source = 1
 
 [node name="InsideFactory" type="Node3D"]
 
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="RightWall" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(9.75673, 0, 0, 0, 1, 0, 0, 0, 1, 6.38937, 0, 0)
+transform = Transform3D(9.75673, 0, 0, 0, 2.57, 0, 0, 0, 1, 6.38937, 0, 0)
 
 [node name="Wall" type="MeshInstance3D" parent="Walls/RightWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672578, 0, -7.51889)
@@ -27,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672578, 0, -7.51889)
 shape = SubResource("ConvexPolygonShape3D_djqho")
 
 [node name="LeftWall" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(9.75673, 0, 0, 0, 1, 0, 0, 0, 1, 6.38937, 0, 14.8397)
+transform = Transform3D(9.75673, 0, 0, 0, 2.57, 0, 0, 0, 1, 6.38937, 0, 14.8397)
 
 [node name="Wall" type="MeshInstance3D" parent="Walls/LeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672578, 0, -7.51889)
@@ -39,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672578, 0, -7.51889)
 shape = SubResource("ConvexPolygonShape3D_djqho")
 
 [node name="BackWall" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(-4.2648e-07, 0, 1, 0, 1, 0, -9.75673, 0, -4.37114e-08, -8.20206, 0, 0)
+transform = Transform3D(-4.2648e-07, 0, 1, 0, 2.57, 0, -9.75673, 0, -4.37114e-08, -8.20206, 0, 0)
 
 [node name="Wall" type="MeshInstance3D" parent="Walls/BackWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672578, 0, -7.51889)
@@ -51,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672578, 0, -7.51889)
 shape = SubResource("ConvexPolygonShape3D_djqho")
 
 [node name="RightWall2" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(-4.2648e-07, 0, 1, 0, 1, 0, -9.75673, 0, -4.37114e-08, 23.7491, 0, 0)
+transform = Transform3D(-4.2648e-07, 0, 1, 0, 2.57, 0, -9.75673, 0, -4.37114e-08, 23.7491, 0, 0)
 
 [node name="Wall" type="MeshInstance3D" parent="Walls/RightWall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672578, 0, -7.51889)
@@ -67,11 +70,35 @@ shape = SubResource("ConvexPolygonShape3D_djqho")
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.322205, 0, 0)
 shape = SubResource("BoxShape3D_1i0du")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 0.94, 0, 0, 0)
 mesh = ExtResource("2_er0gl")
 
+[node name="Ceiling" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.22709, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.322205, 0, 0)
+shape = SubResource("BoxShape3D_1i0du")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, -1, 8.21774e-08, 0, -8.74228e-08, -0.94, 0, 0, 0)
+mesh = ExtResource("2_er0gl")
+
 [node name="Player" parent="." instance=ExtResource("3_7qdjf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.1904, 0, -5.1413)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.1904, 0.058351, -5.1413)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_socna")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0282, 6.83458, -6.84484)
+light_energy = 3.726
+light_indirect_energy = 1.255
+light_size = 1.0
+omni_range = 9.003

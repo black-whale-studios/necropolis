@@ -29,6 +29,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		_rotation_input = -event.relative.x * MOUSE_SENSITIVITY
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
 	
+		
+func _input(event):
+	if event.is_action_pressed("interact") and _current_interaction_object:
+		_current_interaction_object.interact()
+		pass
 
 
 func _update_camera(delta):

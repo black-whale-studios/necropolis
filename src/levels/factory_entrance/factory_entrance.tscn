@@ -37,7 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.861, 0, -10.84)
 [node name="InteractionBox" parent="Topology/EntranceBuilding" instance=ExtResource("2_2c0yn")]
 transform = Transform3D(2.0828, 0, 0, 0, 2.91987, 0, 0, 0, 0.366977, 3.08656, 0.931646, -6.15885)
 interaction_descripion = "Enter"
-interaction_script = ExtResource("3_oogoh")
+interaction_script = NodePath("../DoorInteractionNode")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Topology/EntranceBuilding"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000179291, 0, 4.76837e-05)
@@ -57,6 +57,9 @@ shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 4.66
 omni_attenuation = -0.01
+
+[node name="DoorInteractionNode" type="Node" parent="Topology/EntranceBuilding"]
+script = ExtResource("3_oogoh")
 
 [node name="Player" parent="." instance=ExtResource("1_lhubg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506316, 0)

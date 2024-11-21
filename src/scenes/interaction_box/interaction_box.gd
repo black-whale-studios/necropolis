@@ -2,13 +2,14 @@ class_name InteractionBox
 extends Node3D
 
 @export var interaction_descripion: String
-@export var interaction_script: GDScript
+@export var interaction_script: NodePath
 
 var _interaction_script
+var _node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_interaction_script = interaction_script.new()
-	if !_interaction_script.has_method("interact"):
+	_node = get_node(interaction_script)
+	if !_node.has_method("interact"):
 		assert(false, "interact method not present on script")
 		pass
 	
@@ -22,5 +23,5 @@ func _process(delta: float) -> void:
 
 
 func interact():
-	_interaction_script.interact()
+	_node.interact()
 	pass
