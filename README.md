@@ -195,3 +195,8 @@
 - [x] **Discussão sobre o projeto e respostas a perguntas da audiência**:  
 
   A equipe se preparou para responder a questões sobre design técnico e decisões criativas.
+
+# Sobre o jogo
+
+Design do menu: https://www.figma.com/design/YJt9xsCH33tC5l4TDxk8Hw/Untitled?m=auto&t=0HhcKsRaygRxxzLx-6
+Documento do design: https://docs.google.com/presentation/d/1ruI4hrM3XMO7o2psfeW-srWtosvYpBQiivwni4gRuiE/edit?usp=sharing
