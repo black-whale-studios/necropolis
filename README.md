@@ -1,3 +1,11 @@
+# Necropolis
+
+Documento de design: https://docs.google.com/presentation/d/1ruI4hrM3XMO7o2psfeW-srWtosvYpBQiivwni4gRuiE/edit?usp=sharing
+
+Design do menu: https://www.figma.com/design/YJt9xsCH33tC5l4TDxk8Hw/Untitled?m=auto&t=0HhcKsRaygRxxzLx-6
+
+[Demo de neblina, luminosidade e interação com objetos](/docs/fog_and_light_demo.mp4)
+
 # Relatório de Desenvolvimento de Algoritmo para o Jogo Necropolis
 
 
@@ -34,7 +42,7 @@
 
 
 
-- [x] **Métricas para avaliação de eficiência do algoritmo estabelecidas**:  
+- [*] **Métricas para avaliação de eficiência do algoritmo estabelecidas**:  
 
   As métricas incluem:  
 
